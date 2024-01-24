@@ -1,18 +1,22 @@
 <?php
-	echo"I love php <br>";
-	echo"I love php";
-	// This is a comment
-?>
+	$name = "S V";
+	$food = "pizza";
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-</head>
-<body>
-	<br>
-	<button>order pizza</button>
-</body>
-</html>
+	$age = 2;
+
+	$price = 2.5;
+
+	$employed = true;
+	$online = false;
+	$offline = true;
+
+	echo "Online status: {$online}<br>";
+	echo "Offline status: {$offline}<br>";
+
+	$total = null;
+	$quantity = 5;
+	echo"You have ordered {$quantity} x {$food}s <br>";
+
+	$total = $quantity * $price;
+	echo"Your total is: \${$total}";
+?>
