@@ -1,15 +1,25 @@
 <?php
-	
-	$age = 17;
-	if($age >=18){
-		echo "You may entere this site";
-	}
-	elseif($age <= 0){
-		echo "That wasn't a valid age.";
-	} 
-	else{
-		echo "You must be 18+ to enter";
-	}
 
-	
+  $temp = 20;
+  $cloudy = true;
+
+  if($temp >= 0 && $temp <= 30) { 
+    echo"The weather is good<br>";
+  } else{
+    echo"The waether is bad<br>";
+  }
+
+
+  if($temp >= 0 || $temp <= 30) { 
+    echo"The weather is good<br>"; }
+  else{
+    echo"The waether is bad<br>";
+  }
+
+  if($cloudy) {
+    echo "It's sunny.";
+  } else {
+    echo "It's cloudy";
+  }
+
 ?>
