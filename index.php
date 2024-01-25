@@ -9,10 +9,7 @@
 
 <body>
   <form action="index.php" method="post">
-    <label>Enter a number to count to:
-    </label>
-    <input type="text" name="counter">
-    <input type="submit" value="start">
+    <input type="submit" value="stop">
   </form>
 </body>
 
@@ -20,14 +17,17 @@
 
 <?php
 
-  $counter = $_POST["counter"];
+  $seconds = 0;
+  $running = true;
 
-  for ($i = 1; $i <= $counter; $i++) {
-    echo $i . "<br>";
+  while(  $running && $seconds < 100 ) {
+    if(isset($_POST["stop"])) {
+      $running = false;
+    }
+    else{
+      $seconds++;
+      echo $seconds . "<br>";
+    }
   }
-
-  // for ($i = 0; $i < 10; $i++) {
-  //   echo "Hello ". ($i+1) ."<br>";
-  // }
 
 ?>
