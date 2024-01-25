@@ -1,25 +1,16 @@
 <?php
 
-  $temp = 20;
-  $cloudy = true;
+  $temp = date("1");
+  
+  $temp = "Sunday";
 
-  if($temp >= 0 && $temp <= 30) { 
-    echo"The weather is good<br>";
-  } else{
-    echo"The waether is bad<br>";
-  }
-
-
-  if($temp >= 0 || $temp <= 30) { 
-    echo"The weather is good<br>"; }
-  else{
-    echo"The waether is bad<br>";
-  }
-
-  if($cloudy) {
-    echo "It's sunny.";
-  } else {
-    echo "It's cloudy";
-  }
+  switch ($temp) {
+    case "Monday":
+      echo"I love monday";
+      break;
+    default:
+      echo "JKD, I hate everyday";
+  };
+  
 
 ?>
