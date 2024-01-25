@@ -1,25 +1,39 @@
 <?php
 
-  $foods = array("apple", "orange", "banana", "coconut");
+  // also use the array method
 
-  // $foods[0] = "pineapple";
-  // array_push($foods,"pineapple","kiwi");
-  // array_pop($foods);
-  // array_shift($foods);
+  $capitals = array("USA"=>"Washington D.C", 
+                    "Japan"=>"Kyoto", 
+                    "South Korea"=>"Seoul", 
+                    "India"=>"New Delhi");
   
-  // return a new array
-  $reversed_arr = array_reverse($foods);
+  // echo $capitals["USA"];
+  $capitals["USA"] = "Las Vegas";
+  $capitals["China"] = "Beijing";
 
-  foreach($foods as $food) {
-    echo $food . "<br>";
-  }
-  
-  echo "<br>";
-  
-  foreach($reversed_arr as $food) {
-    echo $food . "<br>";
+  foreach ($capitals as $key => $value) {
+    echo "{$key} = {$value}<br>";
   }
 
   echo "<br>";
-  echo count($foods)
+
+  $keys = array_keys($capitals);
+  foreach ($keys as $key){
+    echo "{$key} <br>";
+  }
+
+  echo "<br>";
+
+  $values = array_values($capitals);
+  foreach ($values as $value){
+    echo "{$value} <br>";
+  }
+
+  echo "<br>";
+
+  $capitals = array_flip($capitals);
+  foreach ($capitals as $key => $value) {
+    echo "{$key} = {$value}<br>";
+  }
+  
 ?>
