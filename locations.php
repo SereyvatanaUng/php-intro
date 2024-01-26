@@ -12,8 +12,8 @@ include("header.html");
 </head>
 
 <body>
-  This is the Home page<br>
-  Stuff about your home pafe can go here<br>
+  This is the loactions page<br>
+  Stuff about your loactions pafe can go here<br>
 </body>
 
 </html>
