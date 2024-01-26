@@ -8,46 +8,51 @@
 </head>
 
 <body>
-  <h1>Hello</h1>
+  <form action="index.php" method="post">
+    username:
+    <input type="text" name="username"><br>
+    age:
+    <input type="text" name="age"><br>
+    email:
+    <input type="text" name="email"><br>
+    <input type="submit" name="login" value="login">
+  </form>
 </body>
 
 </html>
 
 <?php
 
-$username = "Serey Vatana";
-$phone = '123-456-789';
+// if (isset($_POST["login"])) {
 
-// $username = strtolower($username);
-// $username = strtoupper($username);
-// $username = trim($username);
-// $phone = str_replace('-', '', $phone);
-// $username = strrev($username);
-// $username = str_shuffle($username);
+//   $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
 
-// // match 0, not match = 1
-// $equals = strcmp($username, "Serey Vatana");
-// echo $equals . "<br>";
+//   $age = filter_input(INPUT_POST, "age", FILTER_SANITIZE_NUMBER_INT);
 
-// $count = strlen($phone);
+//   $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_SPECIAL_CHARS);
 
-// $index = strpos($phone, "-");
-
-// $firstname = substr($username, 0, 3);
-// $lastname = substr($username, 4);
-
-// // split a string into array
-// $fullname = explode(' ', $username);
-// foreach($fullname as $name){
-//   echo $name . "<br>";
+//   echo "". $username ."<br>". $age ."<br>". $email."<br>";
 // }
 
-// // join an array to a string
-// $name2 = array("Ung", "Serey", "Vatana");
-// $name2 = implode(" ", $name2);
-// echo $name2 . "<br>";
+// // It will throw error when user input illegal characters.
+if (isset($_POST["login"])) {
+  $age = filter_input(INPUT_POST, "age", FILTER_VALIDATE_INT);
 
-echo $username . "<br>";
-echo $phone;
+  $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
+
+  if (empty($age)) {
+    echo "That number wasn't valid";
+
+  } else {
+    echo "You are $age years old";
+  }
+  if (empty($email)) {
+    echo "That email wasn't valid";
+
+  } else {
+    echo "You email is: {$email}";
+  }
+}
+
 
 ?>
