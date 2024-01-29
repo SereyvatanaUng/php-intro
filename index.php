@@ -1,20 +1,18 @@
 <?php
 include("database.php");
 
-$username = "Patrick";
-$password = "rock3";
-$hash = password_hash($password, PASSWORD_DEFAULT);
+$sql = "SELECT * FROM users";
+$result = mysqli_query($conn, $sql);
 
-
-$sql = "INSERT INTO users (users, password) 
-        VALUES ('$username', '$hash')";
-
-try {
-  mysqli_query($conn, $sql);
-  echo "Record inserted successfully<br>";
-} catch (mysqli_sql_exception) {
-  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+if (mysqli_num_rows($result) > 0) {
+  while ($row = mysqli_fetch_array($result)) {
+    echo $row["id"] . "<br>";
+    echo $row["users"] . "<br>";
+    echo $row["reg_date"] . "<br>";
+  }
+  ;
+} else {
+  echo "No user found";
 }
-
 mysqli_close($conn);
 ?>
