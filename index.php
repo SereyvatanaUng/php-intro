@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,38 +8,16 @@ session_start();
 </head>
 
 <body>
-  <form action="index.php" method="post">
+  <!-- $_SERVER["PHP_SELF"] to send to the current file name (ex; we can the file name)  -->
+  <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
     username:
-    <input type="text" name="username"><br>
-    password:
-    <input type="password" name="password"><br>
-    <input type="submit" name="login" value="login">
+    <input type="text" name="username">
+    <input type="submit" name="submit">
   </form>
 </body>
 
-</html>
-
-<?php
-// $_SESSION["username"] = "BroCode";
-// $_SESSION["password"] = "pizza123";
-
-// echo $_SESSION["username"] . "<br>";
-// echo $_SESSION["password"] . "<br>";
-if (isset($_POST["login"])) {
-
-  if (!empty($_POST["username"]) && !empty($_POST["password"])) {
-
-    $_SESSION["username"] = $_POST["username"];
-    $_SESSION["password"] = $_POST["password"];
-
-    echo $_SESSION["username"] . "<br>";
-    echo $_SESSION["password"] . "<br>";
-
-    header("Location: home.php");
-
-  } else {
-    echo "Missing username or password<br>";
-  }
+</html><?php
+foreach ($_SERVER as $key => $value) {
+  echo "{$key} = {$value} <br>";
 }
-
 ?>
