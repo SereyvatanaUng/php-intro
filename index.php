@@ -1,23 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+$password = "pizza123";
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+$hash = password_hash($password, PASSWORD_DEFAULT);
 
-<body>
-  <!-- $_SERVER["PHP_SELF"] to send to the current file name (ex; we can the file name)  -->
-  <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
-    username:
-    <input type="text" name="username">
-    <input type="submit" name="submit">
-  </form>
-</body>
+echo $hash . "<br>";
 
-</html><?php
-foreach ($_SERVER as $key => $value) {
-  echo "{$key} = {$value} <br>";
+if (password_verify("pizza123", $hash)) {
+  echo "You are log in";
+} else {
+  echo "Incorrect password";
 }
 ?>
